@@ -37,7 +37,7 @@
       "targetField": "Name",
       "required": true
     },
-    "paintings": {
+    "Paintings": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::painting.painting",

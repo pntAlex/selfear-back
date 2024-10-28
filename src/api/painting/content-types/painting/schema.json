@@ -10,56 +10,32 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "Title": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": {},
       "type": "string",
       "required": true,
       "unique": true,
       "minLength": 1
     },
     "Date": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "type": "date",
       "required": false
     },
     "Width": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "type": "decimal",
       "min": 0
     },
     "Length": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "type": "decimal",
       "min": 0
     },
     "Depth": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "type": "decimal",
       "min": 0
     },
@@ -67,38 +43,18 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
+      "allowedTypes": ["images", "files"],
+      "pluginOptions": {}
     },
     "Pictures": {
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
+      "allowedTypes": ["images", "files", "videos", "audios"],
+      "pluginOptions": {}
     },
     "Slug": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": {},
       "type": "uid",
       "targetField": "Title",
       "required": true
@@ -107,13 +63,13 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::painting-support.painting-support",
-      "inversedBy": "paintings"
+      "inversedBy": "Paintings"
     },
     "Type": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::painting-type.painting-type",
-      "inversedBy": "paintings"
+      "inversedBy": "Paintings"
     }
   }
 }

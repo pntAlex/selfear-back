@@ -406,7 +406,7 @@ export interface ApiPaintingSupportPaintingSupport
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
       }>;
-    paintings: Schema.Attribute.Relation<'oneToMany', 'api::painting.painting'>;
+    Paintings: Schema.Attribute.Relation<'oneToMany', 'api::painting.painting'>;
     publishedAt: Schema.Attribute.DateTime;
     Slug: Schema.Attribute.UID<'Name'> &
       Schema.Attribute.Required &
@@ -425,6 +425,7 @@ export interface ApiPaintingTypePaintingType
   extends Struct.CollectionTypeSchema {
   collectionName: 'painting_types';
   info: {
+    description: '';
     displayName: 'Painting Type';
     pluralName: 'painting-types';
     singularName: 'painting-type';
@@ -457,7 +458,7 @@ export interface ApiPaintingTypePaintingType
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
       }>;
-    paintings: Schema.Attribute.Relation<'oneToMany', 'api::painting.painting'>;
+    Paintings: Schema.Attribute.Relation<'oneToMany', 'api::painting.painting'>;
     publishedAt: Schema.Attribute.DateTime;
     Slug: Schema.Attribute.UID<'Name'> &
       Schema.Attribute.Required &
@@ -483,27 +484,12 @@ export interface ApiPaintingPainting extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Date: Schema.Attribute.Date &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
+    Date: Schema.Attribute.Date;
     Depth: Schema.Attribute.Decimal &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
       Schema.Attribute.SetMinMax<
         {
           min: 0;
@@ -511,46 +497,26 @@ export interface ApiPaintingPainting extends Struct.CollectionTypeSchema {
         number
       >;
     Length: Schema.Attribute.Decimal &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
       Schema.Attribute.SetMinMax<
         {
           min: 0;
         },
         number
       >;
-    locale: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::painting.painting'
-    >;
+    > &
+      Schema.Attribute.Private;
     MainPicture: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
+      Schema.Attribute.Required;
     Pictures: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    Slug: Schema.Attribute.UID<'Title'> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
     Support: Schema.Attribute.Relation<
       'manyToOne',
       'api::painting-support.painting-support'
@@ -558,11 +524,6 @@ export interface ApiPaintingPainting extends Struct.CollectionTypeSchema {
     Title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
       }>;
@@ -574,11 +535,6 @@ export interface ApiPaintingPainting extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Width: Schema.Attribute.Decimal &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
       Schema.Attribute.SetMinMax<
         {
           min: 0;

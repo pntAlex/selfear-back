@@ -4,7 +4,8 @@
   "info": {
     "singularName": "painting-type",
     "pluralName": "painting-types",
-    "displayName": "Painting Type"
+    "displayName": "Painting Type",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -36,7 +37,7 @@
       "targetField": "Name",
       "required": true
     },
-    "paintings": {
+    "Paintings": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::painting.painting",
