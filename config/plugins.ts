@@ -8,9 +8,9 @@ export default ({ env }) => ({
         api_secret: env("CLOUDINARY_SECRET"),
       },
       actionOptions: {
-        upload: {},
-        uploadStream: {},
-        delete: {},
+        uploadStream: {
+          asset_folder: env("CLOUDINARY_FOLDER"),
+        },
       },
     },
   },
