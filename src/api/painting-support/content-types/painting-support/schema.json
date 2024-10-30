@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Name": {
+    "name": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -27,21 +27,20 @@
       "unique": true,
       "minLength": 1
     },
-    "Slug": {
+    "slug": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "type": "uid",
-      "targetField": "Name",
       "required": true
     },
-    "Paintings": {
+    "paintings": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::painting.painting",
-      "mappedBy": "Support"
+      "mappedBy": "support"
     }
   }
 }

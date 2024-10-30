@@ -395,7 +395,7 @@ export interface ApiPaintingSupportPaintingSupport
       'oneToMany',
       'api::painting-support.painting-support'
     >;
-    Name: Schema.Attribute.String &
+    name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
@@ -406,9 +406,9 @@ export interface ApiPaintingSupportPaintingSupport
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
       }>;
-    Paintings: Schema.Attribute.Relation<'oneToMany', 'api::painting.painting'>;
+    paintings: Schema.Attribute.Relation<'oneToMany', 'api::painting.painting'>;
     publishedAt: Schema.Attribute.DateTime;
-    Slug: Schema.Attribute.UID<'Name'> &
+    slug: Schema.Attribute.UID &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -447,7 +447,7 @@ export interface ApiPaintingTypePaintingType
       'oneToMany',
       'api::painting-type.painting-type'
     >;
-    Name: Schema.Attribute.String &
+    name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
@@ -458,9 +458,9 @@ export interface ApiPaintingTypePaintingType
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
       }>;
-    Paintings: Schema.Attribute.Relation<'oneToMany', 'api::painting.painting'>;
+    paintings: Schema.Attribute.Relation<'oneToMany', 'api::painting.painting'>;
     publishedAt: Schema.Attribute.DateTime;
-    Slug: Schema.Attribute.UID<'Name'> &
+    slug: Schema.Attribute.UID &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -488,15 +488,15 @@ export interface ApiPaintingPainting extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Date: Schema.Attribute.Date;
-    Depth: Schema.Attribute.Decimal &
+    date: Schema.Attribute.Date;
+    depth: Schema.Attribute.Decimal &
       Schema.Attribute.SetMinMax<
         {
           min: 0;
         },
         number
       >;
-    Length: Schema.Attribute.Decimal &
+    length: Schema.Attribute.Decimal &
       Schema.Attribute.SetMinMax<
         {
           min: 0;
@@ -509,32 +509,32 @@ export interface ApiPaintingPainting extends Struct.CollectionTypeSchema {
       'api::painting.painting'
     > &
       Schema.Attribute.Private;
-    MainPicture: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
-    Pictures: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
-    Support: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::painting-support.painting-support'
-    >;
-    Title: Schema.Attribute.String &
+    name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
       }>;
-    Type: Schema.Attribute.Relation<
+    picture: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    pictures: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    support: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::painting-support.painting-support'
+    >;
+    type: Schema.Attribute.Relation<
       'manyToOne',
       'api::painting-type.painting-type'
     >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Width: Schema.Attribute.Decimal &
+    width: Schema.Attribute.Decimal &
       Schema.Attribute.SetMinMax<
         {
           min: 0;

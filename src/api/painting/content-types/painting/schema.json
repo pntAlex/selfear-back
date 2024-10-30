@@ -12,64 +12,72 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "name": {
       "pluginOptions": {},
       "type": "string",
       "required": true,
       "unique": true,
       "minLength": 1
     },
-    "Date": {
+    "date": {
       "pluginOptions": {},
       "type": "date",
       "required": false
     },
-    "Width": {
+    "width": {
       "pluginOptions": {},
       "type": "decimal",
       "min": 0
     },
-    "Length": {
+    "length": {
       "pluginOptions": {},
       "type": "decimal",
       "min": 0
     },
-    "Depth": {
+    "depth": {
       "pluginOptions": {},
       "type": "decimal",
       "min": 0
     },
-    "MainPicture": {
+    "picture": {
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images", "files"],
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
       "pluginOptions": {}
     },
-    "Pictures": {
+    "pictures": {
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images", "files", "videos", "audios"],
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
       "pluginOptions": {}
     },
-    "Slug": {
+    "slug": {
       "pluginOptions": {},
       "type": "uid",
-      "targetField": "Title",
-      "required": true
+      "required": true,
+      "targetField": "name"
     },
-    "Support": {
+    "support": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::painting-support.painting-support",
-      "inversedBy": "Paintings"
+      "inversedBy": "paintings"
     },
-    "Type": {
+    "type": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::painting-type.painting-type",
-      "inversedBy": "Paintings"
+      "inversedBy": "paintings"
     }
   }
 }
