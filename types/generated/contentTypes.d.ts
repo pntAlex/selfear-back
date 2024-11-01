@@ -408,8 +408,9 @@ export interface ApiPaintingSupportPaintingSupport
       }>;
     paintings: Schema.Attribute.Relation<'oneToMany', 'api::painting.painting'>;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID &
+    slug: Schema.Attribute.UID<'name'> &
       Schema.Attribute.Required &
+      Schema.Attribute.Private &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -460,8 +461,9 @@ export interface ApiPaintingTypePaintingType
       }>;
     paintings: Schema.Attribute.Relation<'oneToMany', 'api::painting.painting'>;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID &
+    slug: Schema.Attribute.UID<'name'> &
       Schema.Attribute.Required &
+      Schema.Attribute.Private &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
