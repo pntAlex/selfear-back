@@ -1,1 +1,5 @@
-export default ({ env }) => ({});
+export default ({ env }) => ({
+  "media-prefix": {
+    enabled: true,
+  },
+});
